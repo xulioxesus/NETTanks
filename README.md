@@ -25,3 +25,13 @@ Crear el Prefab ProjectileBase con dos variantes:
     - ProjectileServer
 
 En el ProjectileBase hay dos scripts `LifeTime.cs` y `DestroySelfOnContact`
+
+### 2.8 Firing Projectiles
+
+Nueva `Layer` `Projectile`
+
+Revisar matriz de colisiones para Física y para Física2D.
+
+Se crea un script `ProjectileLauncher` para disparar: crea balas que solo ven los clientes a nivel local e invocan la creación de las balas en el servidor.
+
+Este script se asocia al prefab Player.

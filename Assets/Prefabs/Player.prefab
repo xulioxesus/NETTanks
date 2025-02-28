@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8395012461197715631}
   - component: {fileID: 2648117174031261427}
   - component: {fileID: 5490270308740790077}
+  - component: {fileID: 1418193817113155743}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -159,6 +160,24 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   inputReader: {fileID: 11400000, guid: dd5e0224fd83da14bab45c118f96d585, type: 2}
   turretTransform: {fileID: 7132377481447762943}
+--- !u!114 &1418193817113155743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143417338257459549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac0434954135f5a458635ea55c12c892, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
+  inputReader: {fileID: 11400000, guid: dd5e0224fd83da14bab45c118f96d585, type: 2}
+  projectileSpawnPoint: {fileID: 4534372313195027107}
+  serverProjectilePrefab: {fileID: 2020477124358425013, guid: e71e388454aa905429043e2ed73b258a, type: 3}
+  clientProjectilePrefab: {fileID: 2847628296019975438, guid: 5f9e0ae109671dd418925fce83f2dabe, type: 3}
+  projectileSpeed: 30
 --- !u!1 &3391061610658337034
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,6 +247,37 @@ MonoBehaviour:
   SwitchTransformSpaceWhenParented: 0
   Interpolate: 1
   SlerpPosition: 0
+--- !u!1 &3865671360490219162
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4534372313195027107}
+  m_Layer: 0
+  m_Name: ProjectileSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4534372313195027107
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3865671360490219162}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6721036888015325559}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7719295900127751958
 GameObject:
   m_ObjectHideFlags: 0
@@ -516,7 +566,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.46, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4534372313195027107}
   m_Father: {fileID: 7132377481447762943}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7123862030777526816
