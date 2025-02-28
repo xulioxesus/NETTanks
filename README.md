@@ -17,3 +17,11 @@ Se crea el fondo.
 Modificar InputReader para añadir la acción de seguir el cursor del ratón.
 
 Crear `PlayerAiming.cs` para seguir el cursor del ratón con la torreta.
+
+### 2.7 Networked Projectiles
+
+Crear el Prefab ProjectileBase con dos variantes:
+    - ProjectileClient (Con un sprite 2D para la bala)
+    - ProjectileServer
+
+En el ProjectileBase hay dos scripts `LifeTime.cs` y `DestroySelfOnContact`
