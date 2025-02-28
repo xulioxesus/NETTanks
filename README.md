@@ -11,3 +11,9 @@ Script para mover la base del jugador.
 RigidBody2D al prefab del player. Interpolar para que no hay saltos en el movimiento.
 
 Se crea el fondo.
+
+### 2.6 Player Aiming
+
+Modificar InputReader para añadir la acción de seguir el cursor del ratón.
+
+Crear `PlayerAiming.cs` para seguir el cursor del ratón con la torreta.
