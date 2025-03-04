@@ -60,4 +60,12 @@ Modificar el código de ProjectileLauncher para:
 
 - Usa una variable de red para guardar el valor
 
-- Se crea un evento OnDie para anunciar que el gameobject tiene su vida a cero
+- Se crea un evento OnDie para anunciar que el gameobject tiene su vida a cero.
+
+### 2.11 Health Display
+
+- Se crea un script HealthDisplay.cs para gestionar la barra de salud.
+
+Este script se suscribe al evento HandleHealthChanged para modificar de forma visual la salud del jugador.
+
+- Se crea un pequeño Canvas en el Player para mostrar su salud.
