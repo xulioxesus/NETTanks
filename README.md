@@ -51,3 +51,13 @@ Modificar el código de ProjectileLauncher para:
 - Evitar que la bala colisione con el propio tanque.
 
 - Proporcionar la velocidad de la bala y que se mueva utilizando el Rigidbody2D de la misma.
+
+### 2.10 Health Component
+
+- Se crea un script Health.cs para gestionar la salud de cualquier componente de nuestro juego que la requiera.
+
+- Se modifica el prefab Player para añadir el componente Health
+
+- Usa una variable de red para guardar el valor
+
+- Se crea un evento OnDie para anunciar que el gameobject tiene su vida a cero
