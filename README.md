@@ -103,3 +103,8 @@ Este script se suscribe al evento HandleHealthChanged para modificar de forma vi
 - Se modifica la matriz de Física 2D para detectar colisiones entre Pickup y Default
 - Se crea un script CoinSpawner.cs para generar monedas de forma aleatoria y evitando que colisionen con objetos ya situados en el mapa
 - Hay que observar como el CoinSpawner se suscribe al evento OnCollected de cada moneda
+
+### 2.16 Map Design
+
+- Se crea el mapa de juego
+
