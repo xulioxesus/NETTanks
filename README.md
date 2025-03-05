@@ -95,3 +95,11 @@ Este script se suscribe al evento HandleHealthChanged para modificar de forma vi
 - Modificado Coin.cs para asignar un valor a las monedas.
 - Creado un monedero para que cada jugador lleve cuenta de las monedas recogidas CoinWallet.cs
 - Modificado el Prefab Player para añadir el monedero.
+
+### 2.15 Coin Spawner
+
+- Se crea una Layer nueva 'Pickup' y se asigna esa capa al Prefab CoinBase
+- Se añade un GameObject nuevo CoinSpawner con un nuevo componente CoinSpawner.cs y NetworkObject
+- Se modifica la matriz de Física 2D para detectar colisiones entre Pickup y Default
+- Se crea un script CoinSpawner.cs para generar monedas de forma aleatoria y evitando que colisionen con objetos ya situados en el mapa
+- Hay que observar como el CoinSpawner se suscribe al evento OnCollected de cada moneda
