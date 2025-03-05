@@ -69,3 +69,9 @@ Modificar el código de ProjectileLauncher para:
 Este script se suscribe al evento HandleHealthChanged para modificar de forma visual la salud del jugador.
 
 - Se crea un pequeño Canvas en el Player para mostrar su salud.
+
+### 2.12 Dealing with Damages
+
+- Modificado ProjectileLauncher para que cuando se dispara la bala en el servidor se le asigne el dueño de la bala adecuado.
+
+- Se crea DealDamageOnContact.cs para aplicar daño a un jugador enemigo cuando la bala colisiona con él.
