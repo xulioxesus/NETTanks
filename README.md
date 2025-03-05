@@ -1,3 +1,5 @@
+## 2. Core Gameplay
+
 ### 2.4 Network Authority
 
 Se añade botón de conexión como Host
@@ -115,3 +117,10 @@ Este script se suscribe al evento HandleHealthChanged para modificar de forma vi
 - Modificado ProjectileLauncher:
     - Se cambia la forma de medir el tiempo entre disparos.
     - Se añade un coste para disparar, es necesario tener monedas recolectadas para hacerlo.
+
+## 3. Connecting Online
+
+### 3.2 Main Menu
+
+- Se crea una escena nueva para el Menú principal
+- Se renombra la escena SampleScene a Game
