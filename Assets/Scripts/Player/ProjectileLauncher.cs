@@ -11,15 +11,17 @@ public class ProjectileLauncher : NetworkBehaviour
     [SerializeField] private GameObject clientProjectilePrefab;
     [SerializeField] private GameObject muzzleFlash;
     [SerializeField] private Collider2D playerCollider;
-    
+    [SerializeField] private CoinWallet wallet;
 
     [Header("Settings")]
     [SerializeField] private float projectileSpeed;
     [SerializeField] private float fireRate;
     [SerializeField] private float muzzleFlashDuration;
+    [SerializeField] private int costToFire;
+
 
     private bool shouldFire;
-    private float previousFireTime;
+    private float timer;
     private float muzzleFlashTimer;
 
 
@@ -55,14 +57,22 @@ public class ProjectileLauncher : NetworkBehaviour
         }
 
         if(!IsOwner) {return; }
+
+        if (timer > 0)
+        {
+            timer -= Time.deltaTime;
+        }
+
         if(!shouldFire) {return; }
 
-        if (Time.time < (1 / fireRate) + previousFireTime) { return; }
+        if (timer > 0) { return; }
+
+        if (wallet.TotalCoins.Value < costToFire) { return; }
 
         PrimaryFireServerRpc(projectileSpawnPoint.position, projectileSpawnPoint.up);
         SpawnDummyProjectile(projectileSpawnPoint.position, projectileSpawnPoint.up);
 
-        previousFireTime = Time.time;
+        timer = 1 / fireRate;
 
     }
 
@@ -86,6 +96,11 @@ public class ProjectileLauncher : NetworkBehaviour
     [Rpc(SendTo.Server)]
     private void PrimaryFireServerRpc(Vector3 position, Vector3 up)
     {
+
+        if (wallet.TotalCoins.Value < costToFire) { return; }
+
+        wallet.SpendCoins(costToFire);
+
         GameObject projectileInstance = Instantiate(
             serverProjectilePrefab,
             position,

@@ -108,3 +108,5 @@ Este script se suscribe al evento HandleHealthChanged para modificar de forma vi
 
 - Se crea el mapa de juego
 
+### 2.17 Combat Polish
+
