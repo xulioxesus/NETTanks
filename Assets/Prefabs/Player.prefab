@@ -184,9 +184,9 @@ MonoBehaviour:
   playerCollider: {fileID: 8325598237076702762}
   wallet: {fileID: 5240140706003969253}
   projectileSpeed: 30
-  fireRate: 0.75
+  fireRate: 0.5
   muzzleFlashDuration: 0.075
-  costToFire: 10
+  costToFire: 5
 --- !u!114 &487377282387732465
 MonoBehaviour:
   m_ObjectHideFlags: 0

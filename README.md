@@ -108,5 +108,10 @@ Este script se suscribe al evento HandleHealthChanged para modificar de forma vi
 
 - Se crea el mapa de juego
 
-### 2.17 Combat Polish
+###     
 
+- Nuevo Prefab DustCloud para mostrar explosión de la bala al chocar
+- Nuevo script SpawnOnDestroy para hacer aparecer un objeto cuando otro es destruído
+- Modificado ProjectileLauncher:
+    - Se cambia la forma de medir el tiempo entre disparos.
+    - Se añade un coste para disparar, es necesario tener monedas recolectadas para hacerlo.
