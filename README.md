@@ -75,3 +75,17 @@ Este script se suscribe al evento HandleHealthChanged para modificar de forma vi
 - Modificado ProjectileLauncher para que cuando se dispara la bala en el servidor se le asigne el dueño de la bala adecuado.
 
 - Se crea DealDamageOnContact.cs para aplicar daño a un jugador enemigo cuando la bala colisiona con él.
+
+### 2.13 Coins
+
+- Se crea un Prefab CoinBase que sirve como modelo para las distintas monedas
+
+- Se crea una variante del Prefab anterior llamada RespawningCoin
+
+- Se crea un script Coin.cs (abstracto) para la funcionalidad general de una moneda:
+
+    - Método Collect para coleccionar la moneda
+    - Método SetValue para asignar valor a la moneda
+    - Método Show para mostrar la moneda
+
+- Se crea un script RespawningCoin que hereda de Coin e implementa el método Collect para este tipo de monedas.
