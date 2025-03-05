@@ -89,3 +89,9 @@ Este script se suscribe al evento HandleHealthChanged para modificar de forma vi
     - Método Show para mostrar la moneda
 
 - Se crea un script RespawningCoin que hereda de Coin e implementa el método Collect para este tipo de monedas.
+
+### 2.14 Coin Wallet
+
+- Modificado Coin.cs para asignar un valor a las monedas.
+- Creado un monedero para que cada jugador lleve cuenta de las monedas recogidas CoinWallet.cs
+- Modificado el Prefab Player para añadir el monedero.
