@@ -124,3 +124,8 @@ Este script se suscribe al evento HandleHealthChanged para modificar de forma vi
 
 - Se crea una escena nueva para el Menú principal
 - Se renombra la escena SampleScene a Game
+
+### 3.3 Application Controller
+
+- Estructura básica de la aplicación de Networking
+- Ver imagen
