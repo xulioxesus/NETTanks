@@ -131,3 +131,12 @@ Este script se suscribe al evento HandleHealthChanged para modificar de forma vi
 - Ver imagen
 
 ### 3.4 Authentication
+
+- Nueva escena `NetBootstrap` que muestra el mensaje `Loading ...`
+    - Gameobject NetworkManager
+    - Gameobject ApplicationController con el script ApplicationController asociado.
+- Prefab `ClientManager`
+- Prefab `HostManager`
+- Se modifica el script `AuthenticationController` para usar la autenticación anónima de los servicios de Unity. Si la autenticación es correcta como cliente se abre la escena `Menu`.
+- Se crea `AuthenticationWrapper.cs` para gestionar la autenticación de los servicios de Unity. Se define una clase estática y un tipo enumerado.
+- Se actualiza `ClientGameManager.cs` para utilizar `AuthenticationWrapper` y cargar la escena si consigue autenticarse.
