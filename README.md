@@ -129,3 +129,5 @@ Este script se suscribe al evento HandleHealthChanged para modificar de forma vi
 
 - Estructura básica de la aplicación de Networking
 - Ver imagen
+
+### 3.4 Authentication
