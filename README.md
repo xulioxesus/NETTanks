@@ -1,18 +1,46 @@
+## 2. Core Gameplay
+
+### 1.4 Installation and Basic Setup
+
+- `Player` Prefab
+	- Sprite con un círculo
+	- Componente NetworkObject
+	- Componente NetworkTransform
+		- Sin sincronizar escala
+		- Authority Mode: Server
+		- Interpolate: true
+- SampleScene
+	- NetworkManager
+	- Canvas con botón para hacer Join
+- Script JoinServer para iniciar un cliente
+
+### 2.1 Importing Assets
+
+- Importación de los assets `TankAssets` disponible en la raíz del repositorio.
+- Creación del aspecto visual del tanque en el prefab `Player`
+	- Es importante observar como hay distintos componentes NetworkTransform en las distintas partes del tanque.
+
+### 2.3 Reading Input
+
+- Se crea un asset InputReader para definir las entradas de usuario en el juego
+	- Se aplica su utilización en todo el proyecto.
+- Se crea un script TestScript para capturar los eventos de movimiento de InputReader
+
 ### 2.4 Network Authority
 
 Se añade botón de conexión como Host
 
-Se cambia la autoridad sobre los NetworkTransform del Prefab Player para que sea del Owner.
+Se cambia la autoridad sobre los NetworkTransform del Prefab `Player` para que sea del Owner.
 
-### 2.5 Player Movement
+### 2.5 `Player` Movement
 
 Script para mover la base del jugador.
 
-RigidBody2D al prefab del player. Interpolar para que no hay saltos en el movimiento.
+RigidBody2D al prefab del `Player`. Interpolar para que no haya saltos en el movimiento.
 
 Se crea el fondo.
 
-### 2.6 Player Aiming
+### 2.6 `Player` Aiming
 
 Modificar InputReader para añadir la acción de seguir el cursor del ratón.
 
@@ -20,13 +48,13 @@ Crear `PlayerAiming.cs` para seguir el cursor del ratón con la torreta.
 
 ### 2.7 Networked Projectiles
 
-Crear el Prefab ProjectileBase con dos variantes:
+Crear el Prefab `ProjectileBase` con dos variantes:
 
-- ProjectileClient (Con un sprite 2D para la bala)
+- `ProjectileClient` (Con un sprite 2D para la bala)
 
-- ProjectileServer
+- `ProjectileServer`
 
-En el ProjectileBase hay dos scripts `LifeTime.cs` y `DestroySelfOnContact`
+En el `ProjectileBase` hay dos scripts `LifeTime.cs` y `DestroySelfOnContact`
 
 ### 2.8 Firing Projectiles
 
@@ -36,15 +64,15 @@ Revisar matriz de colisiones para Física y para Física2D.
 
 Se crea un script `ProjectileLauncher` para disparar: crea balas que solo ven los clientes a nivel local e invocan la creación de las balas en el servidor.
 
-Este script se asocia al prefab Player.
+Este script se asocia al prefab `Player`.
 
 ### 2.9 Firing Improvements
 
-Se modifica el prefab Player:
+Se modifica el prefab `Player`:
 
-- añadir un componente con un sprite para mostrar la explosión en el cañón (muzzleFlash).
+- Añadir un componente con un sprite para mostrar la explosión en el cañón (muzzleFlash).
 
-Modificar el código de ProjectileLauncher para:
+Modificar el código de `ProjectileLauncher` para:
 
 - Añadir retardo entre disparos
 
@@ -54,64 +82,64 @@ Modificar el código de ProjectileLauncher para:
 
 ### 2.10 Health Component
 
-- Se crea un script Health.cs para gestionar la salud de cualquier componente de nuestro juego que la requiera.
+- Se crea un script `Health.cs` para gestionar la salud de cualquier componente de nuestro juego que la requiera.
 
-- Se modifica el prefab Player para añadir el componente Health
+- Se modifica el prefab `Player` para añadir el componente `Health`
 
 - Usa una variable de red para guardar el valor
 
-- Se crea un evento OnDie para anunciar que el gameobject tiene su vida a cero.
+- Se crea un evento `OnDie` para anunciar que el gameobject tiene su vida a cero.
 
 ### 2.11 Health Display
 
-- Se crea un script HealthDisplay.cs para gestionar la barra de salud.
+- Se crea un script `HealthDisplay.cs` para gestionar la barra de salud.
 
-Este script se suscribe al evento HandleHealthChanged para modificar de forma visual la salud del jugador.
+Este script se suscribe al evento `HandleHealthChanged` para modificar de forma visual la salud del jugador.
 
-- Se crea un pequeño Canvas en el Player para mostrar su salud.
+- Se crea un pequeño Canvas en el `Player` para mostrar su salud.
 
 ### 2.12 Dealing with Damages
 
-- Modificado ProjectileLauncher para que cuando se dispara la bala en el servidor se le asigne el dueño de la bala adecuado.
+- Modificado `ProjectileLauncher` para que cuando se dispara la bala en el servidor se le asigne el dueño de la bala adecuado.
 
-- Se crea DealDamageOnContact.cs para aplicar daño a un jugador enemigo cuando la bala colisiona con él.
+- Se crea `DealDamageOnContact.cs` para aplicar daño a un jugador enemigo cuando la bala colisiona con él.
 
 ### 2.13 Coins
 
-- Se crea un Prefab CoinBase que sirve como modelo para las distintas monedas
+- Se crea un Prefab `CoinBase` que sirve como modelo para las distintas monedas
 
-- Se crea una variante del Prefab anterior llamada RespawningCoin
+- Se crea una variante del Prefab anterior llamada `RespawningCoin`
 
-- Se crea un script Coin.cs (abstracto) para la funcionalidad general de una moneda:
+- Se crea un script `Coin.cs` (abstracto) para la funcionalidad general de una moneda:
 
-    - Método Collect para coleccionar la moneda
-    - Método SetValue para asignar valor a la moneda
-    - Método Show para mostrar la moneda
+    - Método `Collect` para coleccionar la moneda
+    - Método `SetValue` para asignar valor a la moneda
+    - Método `Show` para mostrar la moneda
 
-- Se crea un script RespawningCoin que hereda de Coin e implementa el método Collect para este tipo de monedas.
+- Se crea un script `RespawningCoin` que hereda de `Coin` e implementa el método `Collect` para este tipo de monedas.
 
 ### 2.14 Coin Wallet
 
-- Modificado Coin.cs para asignar un valor a las monedas.
-- Creado un monedero para que cada jugador lleve cuenta de las monedas recogidas CoinWallet.cs
-- Modificado el Prefab Player para añadir el monedero.
+- Modificado `Coin.cs` para asignar un valor a las monedas.
+- Creado un monedero para que cada jugador lleve cuenta de las monedas recogidas `CoinWallet.cs`
+- Modificado el Prefab `Player` para añadir el monedero.
 
 ### 2.15 Coin Spawner
 
-- Se crea una Layer nueva 'Pickup' y se asigna esa capa al Prefab CoinBase
-- Se añade un GameObject nuevo CoinSpawner con un nuevo componente CoinSpawner.cs y NetworkObject
-- Se modifica la matriz de Física 2D para detectar colisiones entre Pickup y Default
-- Se crea un script CoinSpawner.cs para generar monedas de forma aleatoria y evitando que colisionen con objetos ya situados en el mapa
-- Hay que observar como el CoinSpawner se suscribe al evento OnCollected de cada moneda
+- Se crea una Layer nueva `Pickup` y se asigna esa capa al Prefab `CoinBase`
+- Se añade un GameObject nuevo `CoinSpawner` con un nuevo componente `CoinSpawner.cs` y `NetworkObject`
+- Se modifica la matriz de Física 2D para detectar colisiones entre `Pickup` y `Default`
+- Se crea un script `CoinSpawner.cs` para generar monedas de forma aleatoria y evitando que colisionen con objetos ya situados en el mapa
+- Hay que observar como el `CoinSpawner` se suscribe al evento `OnCollected` de cada moneda
 
 ### 2.16 Map Design
 
 - Se crea el mapa de juego
 
-###     
+### 2.17 Combat Polish
 
-- Nuevo Prefab DustCloud para mostrar explosión de la bala al chocar
-- Nuevo script SpawnOnDestroy para hacer aparecer un objeto cuando otro es destruído
-- Modificado ProjectileLauncher:
+- Nuevo Prefab `DustCloud` para mostrar explosión de la bala al chocar
+- Nuevo script `SpawnOnDestroy` para hacer aparecer un objeto cuando otro es destruído
+- Modificado `ProjectileLauncher`:
     - Se cambia la forma de medir el tiempo entre disparos.
     - Se añade un coste para disparar, es necesario tener monedas recolectadas para hacerlo.
