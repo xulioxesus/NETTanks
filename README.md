@@ -140,3 +140,7 @@ Este script se suscribe al evento HandleHealthChanged para modificar de forma vi
 - Se modifica el script `AuthenticationController` para usar la autenticación anónima de los servicios de Unity. Si la autenticación es correcta como cliente se abre la escena `Menu`.
 - Se crea `AuthenticationWrapper.cs` para gestionar la autenticación de los servicios de Unity. Se define una clase estática y un tipo enumerado.
 - Se actualiza `ClientGameManager.cs` para utilizar `AuthenticationWrapper` y cargar la escena si consigue autenticarse.
+
+### 3.5 Auth Improvements
+
+-  Se modifica AuthenticationWrapper para controlar algunos errores en la autenticación.
