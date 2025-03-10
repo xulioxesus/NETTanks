@@ -144,3 +144,8 @@ Este script se suscribe al evento HandleHealthChanged para modificar de forma vi
 ### 3.5 Auth Improvements
 
 -  Se modifica AuthenticationWrapper para controlar algunos errores en la autenticación.
+
+### 3.6 Relay Service Setup
+
+- Proyecto conectado con Unity Cloud y con Relay configurado
+- NetworkManager se cambia para utilizar Unity Relay como transporte en vez de Unity Transport
