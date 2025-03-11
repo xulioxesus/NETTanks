@@ -173,3 +173,8 @@ Este script se suscribe al evento HandleHealthChanged para modificar de forma vi
 - ClientGameManager.cs
     - Nuevo método `StartClientAsync` para intentar conectarse a una partida existente.
     - Inicia el cliente.
+
+### 3.9 Lobbies UI
+
+- LobbiesBackground Prefab para mostrar una ventana con la lista de lobbies a los que poder unirse en una partida.
+- LobbyItem Prefab para mostrar cada uno de los elementos de la lista anterior.
