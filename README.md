@@ -162,3 +162,14 @@ Este script se suscribe al evento HandleHealthChanged para modificar de forma vi
         - Inicia un nuevo host
         - Carga la escena de juego
 
+### 3.8 Joining a Relay
+
+- En la escena Menu, en el ClientButton se asocia el método StartClient() del script `MainMenu` para conectar de forma asíncrona al Relay del Cloud de Unity. Es necesario escribir el `Join Code` para conectar a un host previamente lanzado.
+- MainMenu.cs:
+    - Se añade una referencia al campo de texto del `joinCode`.
+    - Se añade un método `StartClient` que utilizando el singleton de cliente y el código se une a la partida existente.
+- HostGameManager.cs
+    -Se cambia el protocolo `udp` por `dtls` que es mucho más seguro.
+- ClientGameManager.cs
+    - Nuevo método `StartClientAsync` para intentar conectarse a una partida existente.
+    - Inicia el cliente.
