@@ -149,3 +149,16 @@ Este script se suscribe al evento HandleHealthChanged para modificar de forma vi
 
 - Proyecto conectado con Unity Cloud y con Relay configurado
 - NetworkManager se cambia para utilizar Unity Relay como transporte en vez de Unity Transport
+
+### 3.7 Allocating a Relay
+
+- En la escena Menu, en el HostButton se asocia el método StartHost() del script `MainMenu` para conectar de forma asíncrona al Relay del Cloud de Unity.
+- En ApplicationController.cs se cambia el orden de creación de los singletons en LaunchInMode para crear primero el del host y después el del cliente.
+- HostGameManager.cs:
+    - Nuevo método `StartHostAsync`:
+        - Crea un nuevo Allocation en el Relay de Unity Cloud
+        - Obtiene el `joinCode` de esa nueva localización
+        - Modifica el protocolo de comunicación de red para utilizar `udp`
+        - Inicia un nuevo host
+        - Carga la escena de juego
+
