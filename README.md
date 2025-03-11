@@ -195,3 +195,18 @@ Este script se suscribe al evento HandleHealthChanged para modificar de forma vi
 - Nuevo LobbyItem.cs
     - Inicializa un prefab `LobbyItem` con los textos adecuados, método `Initialise`.
     - Método `Join` para conectarse a un Lobby que utiliza el método `JoinAsync` del script anterior.
+
+### 3.12 Player Name Selection
+
+- Nueva escena `Bootstrap`
+    - Sirve para introducir el nombre del juegador y acceder a la escena `NetBootstrap`.
+    - Se edita la lista de escenas para que sea la primera.
+    - Campo de texto para introducir el nombre, guarda el nombre del jugador cada vez que se modifica algo en él.
+    - Botón para conectar.
+    - Gameobject `NameSelector` con un script asociado `NameSelector.cs`.
+- Nuevo script `UI/NameSelector.cs`:
+    - Método `Start`
+        - Si es el servidor carga la siguiente escena directamente.
+        - Si no es el servidor obtiene el nombre del jugador de `PlayerPrefs`
+    - Método `HandleNameChanged` para gestionar el cambio de nombre
+    - Método `Connect` que guarda el nombre del jugador en `PlayerPrefs` y carga la siguiente escena.
