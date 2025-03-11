@@ -184,3 +184,14 @@ Este script se suscribe al evento HandleHealthChanged para modificar de forma vi
 
 - Se modifica `HostGameManager` para crear un `Lobby` público justo antes de crear el Host.
 - También se crea una corutina para mantener vivo el Lobby mandando una señal cada pocos milisegundos.
+
+### 3.11 Joining Lobbies
+
+- Nuevo LobbiesList.cs
+    - Para mostrar la lista de lobbies disponibles para conectarse con el método `RefreshList`.
+        - Lobbies con espacios disponibles y no bloqueados (filtro).
+        - Crea elementos del prefab `LobbyItem` para rellenar la UI.
+    - Método para conectarse a un Lobby `JoinAsync`
+- Nuevo LobbyItem.cs
+    - Inicializa un prefab `LobbyItem` con los textos adecuados, método `Initialise`.
+    - Método `Join` para conectarse a un Lobby que utiliza el método `JoinAsync` del script anterior.
