@@ -11,7 +11,7 @@ using Unity.Services.Authentication;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ClientGameManager
+public class ClientGameManager: IDisposable
 {
     private JoinAllocation allocation;
     private NetworkClient networkClient;
@@ -68,5 +68,11 @@ public class ClientGameManager
 
 
         NetworkManager.Singleton.StartClient();
+    }
+
+    public void Dispose()
+    {
+        networkClient?.Dispose();
+
     }
 }

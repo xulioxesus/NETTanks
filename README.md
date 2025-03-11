@@ -240,3 +240,15 @@ Este script se suscribe al evento HandleHealthChanged para modificar de forma vi
     - Creado un segundo diccionario para asociar el identificador del sistema de autenticación de Unity Cloud con los datos de usuario en la forma `UserData`.
     - Cuando se aprueba un cliente se añade a los diccionarios.
     - Cuando se desconecta un cliente se borra de los diccionarios.
+
+### 3.16 Shutting Down Cleanly
+
+- Se crea la carpeta `Editor` con un script `StartupSceneLoader` para cargar siempre la escena inicial cuando le damos a `Play` desde el editor.
+- Se implementa la interfaz `IDisposable` con el método `Dispose`para hacer limpieza cuando salimos del juego en las siguientes clases:
+    - ClientGameManager
+    - NetworkClient
+    - HostGameManager
+    - NetworkServer
+- Se implementa el método OnDestroy para hacer limpieza en las siguientes clases:
+    - ClientSingleton
+    - HostSingleton
