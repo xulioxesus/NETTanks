@@ -210,3 +210,17 @@ Este script se suscribe al evento HandleHealthChanged para modificar de forma vi
         - Si no es el servidor obtiene el nombre del jugador de `PlayerPrefs`
     - Método `HandleNameChanged` para gestionar el cambio de nombre
     - Método `Connect` que guarda el nombre del jugador en `PlayerPrefs` y carga la siguiente escena.
+
+### 3.13 Connection Approval
+
+- En la escena `NetBootsrap` en el NetworkManager se marca la opción de que ser requiere `Connection Approval` para los clientes.
+- Nueva clase UserData.cs para enviar información del usuario a través de la red.
+- Nueva clase `NetworkServer.cs`
+    - Con un constructor para acceder al networkManager del juego y registrar una función que será llamada cuando se requiera la aprobación de la conexión de un usuario `ApprovalCheck`;
+    - Una función `ApprovalCheck`:
+        - Recibe una solicitud con los datos de usuario y los decodifica.
+        - Por ahora aprueba siempre al usuario recibido e indica que el prefab player debe ser instanciado para este cliente.
+- Modificado `ClientGameManager` para enviar la información del usuario mediante `UserData` antes de hacer `StartClient`.
+- Modificado `HostGameManager`:
+    - para enviar la información del usuario mediante `UserData` antes de hacer `StartHost`.
+    - para utilizar el nombre del usuario cuando se crea un `Host`.
