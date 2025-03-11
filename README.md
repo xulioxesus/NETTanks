@@ -224,3 +224,19 @@ Este script se suscribe al evento HandleHealthChanged para modificar de forma vi
 - Modificado `HostGameManager`:
     - para enviar la información del usuario mediante `UserData` antes de hacer `StartHost`.
     - para utilizar el nombre del usuario cuando se crea un `Host`.
+
+### 3.14 Handling Connections
+
+- Modificada la clase `UserData` para guardar un nuevo atributo `userAuthId` que almacena la identificación de red de cada cliente conectado.
+- Modificado `HostGameManager` para enviar el `userAuthId` antes de crear un `Host`.
+- Nueva clase `NetworkClient`:
+    - Hace uso del NetworkManager al cual accede mediante su constructor.
+    - Se suscribe al evento que sucede cuando un cliente se desconecta y lo gestiona cargando la escena de menú nuevamente y limpiando el networkmanager correspondiente.
+- Mddificado `ClientGameManager`:
+    - Utiliza un `NetworClient` descrito anteriormente
+    - para enviar el `userAuthId` antes de crear un `Cliente
+- Modificado `NetworkManager`
+    - Creado un diccionario para asociar el identificador en red de un cliente con el identificador del sistema de autenticación de Unity Cloud.
+    - Creado un segundo diccionario para asociar el identificador del sistema de autenticación de Unity Cloud con los datos de usuario en la forma `UserData`.
+    - Cuando se aprueba un cliente se añade a los diccionarios.
+    - Cuando se desconecta un cliente se borra de los diccionarios.
