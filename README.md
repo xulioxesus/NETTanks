@@ -178,3 +178,9 @@ Este script se suscribe al evento HandleHealthChanged para modificar de forma vi
 
 - LobbiesBackground Prefab para mostrar una ventana con la lista de lobbies a los que poder unirse en una partida.
 - LobbyItem Prefab para mostrar cada uno de los elementos de la lista anterior.
+- Se añade un gameobject de LobbiesBackground en el canvas de la escena `Menu`
+
+### 3.10 Creating Lobbies
+
+- Se modifica `HostGameManager` para crear un `Lobby` público justo antes de crear el Host.
+- También se crea una corutina para mantener vivo el Lobby mandando una señal cada pocos milisegundos.
