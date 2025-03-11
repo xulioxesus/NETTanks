@@ -591,6 +591,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7112039310166338191, guid: 1ba0c980c6e65c9489fdb48d13028081, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 192500236}
+    - target: {fileID: 7112039310166338191, guid: 1ba0c980c6e65c9489fdb48d13028081, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RefreshList
+      objectReference: {fileID: 0}
     - target: {fileID: 7746772481861259828, guid: 1ba0c980c6e65c9489fdb48d13028081, type: 3}
       propertyPath: m_Name
       value: LobbiesBackground
@@ -602,13 +610,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7746772481861259828, guid: 1ba0c980c6e65c9489fdb48d13028081, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 192500236}
   m_SourcePrefab: {fileID: 100100000, guid: 1ba0c980c6e65c9489fdb48d13028081, type: 3}
 --- !u!224 &192500233 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5095218173985835034, guid: 1ba0c980c6e65c9489fdb48d13028081, type: 3}
   m_PrefabInstance: {fileID: 192500232}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &192500234 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 853656411252124650, guid: 1ba0c980c6e65c9489fdb48d13028081, type: 3}
+  m_PrefabInstance: {fileID: 192500232}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &192500235 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7746772481861259828, guid: 1ba0c980c6e65c9489fdb48d13028081, type: 3}
+  m_PrefabInstance: {fileID: 192500232}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &192500236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192500235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a150c7c0c39013429d8ed45530b3aa3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lobbyItemParent: {fileID: 192500234}
+  lobbyItemPrefab: {fileID: 8075132599341212996, guid: 568e7424abbd3be4b834b7ec847398f7, type: 3}
 --- !u!1 &332635932
 GameObject:
   m_ObjectHideFlags: 0
@@ -1479,7 +1514,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1274724863}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 192500235}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1274724863
 MonoBehaviour:
   m_ObjectHideFlags: 0
