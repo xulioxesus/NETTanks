@@ -252,3 +252,8 @@ Este script se suscribe al evento HandleHealthChanged para modificar de forma vi
 - Se implementa el método OnDestroy para hacer limpieza en las siguientes clases:
     - ClientSingleton
     - HostSingleton
+
+### 3.17 WebGL Setup
+
+- Se cambia el protocolo de comunicación a wss para WebGL
+- Se habilitan los WebSockets en Unity Transport
