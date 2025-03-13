@@ -257,3 +257,14 @@ Este script se suscribe al evento HandleHealthChanged para modificar de forma vi
 
 - Se cambia el protocolo de comunicación a wss para WebGL
 - Se habilitan los WebSockets en Unity Transport
+
+### 4.2 Camera Player
+
+- Instalar el paquete Cinemachine
+- Modificado prefab player con gameobject `FollowCam`
+    - Es un componente Cinemachine Camera
+    - Se habilita la prioridad a 10
+    - En el Tracking Target se pone el Player
+    - En Ortographic Size se ponde 12
+- Modificado prefab player con componente `TankPlayer.cs` para dar mayor prioridad a la propia camara porque habrá tantas cámaras como jugadores conectados.
+- Nuevo script para priorizar la propia cámara `TankPlayer.cs`
