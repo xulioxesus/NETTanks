@@ -276,3 +276,12 @@ Este script se suscribe al evento HandleHealthChanged para modificar de forma vi
     - se añade una variable de red `PlayerName` en `TankPlayer`a la que se le asigna valor en el servidor mediante el identificador de red (`GetUserDataByClientId`).
 - Nuevo script (`PlayerNameDisplay`) asociado al canvas de Player suscrito a la variable de red `PlayerName`.
 - Modificado `NetworkServer.cs` para crear el método `GetUserDataByClientId`
+
+### 4.4 Spawn Points
+
+- Escena `Game`
+    - Nuevo GameObject `SpawnPoints` cuyos hijos son los puntos del mapa donde aparecen los jugadores.
+- Nuevo `SpawnPoint.cs`
+    - Cuando se habilita se añade a una lista de spawnpoints (atributo estátioo)
+    - Método estático `GetRandomSpawnPos` para obtener una posición aleatoria entre los posibles spawnpoints de la escena.
+- Modificado `NetworkServer.cs` para que cuando se valida la conexión de un cliente se le asigna una posición aleatoria entre los spawnpoints posibles.
