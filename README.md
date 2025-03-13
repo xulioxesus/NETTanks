@@ -268,3 +268,11 @@ Este script se suscribe al evento HandleHealthChanged para modificar de forma vi
     - En Ortographic Size se ponde 12
 - Modificado prefab player con componente `TankPlayer.cs` para dar mayor prioridad a la propia camara porque habrá tantas cámaras como jugadores conectados.
 - Nuevo script para priorizar la propia cámara `TankPlayer.cs`
+
+### 4.3 Overhead Names
+
+- Prefab Player
+    - Se añade un campo de texto para mostrar el nombre del jugador
+    - se añade una variable de red `PlayerName` en `TankPlayer`a la que se le asigna valor en el servidor mediante el identificador de red (`GetUserDataByClientId`).
+- Nuevo script (`PlayerNameDisplay`) asociado al canvas de Player suscrito a la variable de red `PlayerName`.
+- Modificado `NetworkServer.cs` para crear el método `GetUserDataByClientId`
