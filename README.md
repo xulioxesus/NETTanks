@@ -358,3 +358,9 @@ Este script se suscribe al evento HandleHealthChanged para modificar de forma vi
     - Nuevo atributo para el número de jugadores a mostrar en la lista (8 por defecto).
     - Se modirica `HandleLeaderboardEntitiesChanged` para ordenadar los jugadores de mayor a menor por las monedas.
         - Si el jugador no está entre los 8 primeros se muestra como octavo.
+
+### 4.11 Losing Coins
+
+- Modificado `RespawnHandler.cs` para reducir la cantidad de monedas de un jugador cuando muere (50% por defecto)
+    - Se hace referencia a `TankPlayer` en vez de a `NetworkObject` del prefab `Player` para acceder a las monedas cuando el jugador muere.
+    - Una vez se hace respawn del jugador se le actualiza el número de monedas.
