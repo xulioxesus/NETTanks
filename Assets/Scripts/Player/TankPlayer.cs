@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 using Unity.Cinemachine;
 using Unity.Collections;
+using System;
 
 public class TankPlayer : NetworkBehaviour
 {
@@ -15,6 +14,11 @@ public class TankPlayer : NetworkBehaviour
 
     public NetworkVariable<FixedString32Bytes> PlayerName = new NetworkVariable<FixedString32Bytes>();
 
+    [field: SerializeField] public Health Health { get; private set; }
+
+    public static event Action<TankPlayer> OnPlayerSpawned;
+    public static event Action<TankPlayer> OnPlayerDespawned;
+
     public override void OnNetworkSpawn()
     {
 
@@ -24,6 +28,7 @@ public class TankPlayer : NetworkBehaviour
                 HostSingleton.Instance.GameManager.NetworkServer.GetUserDataByClientId(OwnerClientId);
             
             PlayerName.Value = userData.userName;
+            OnPlayerSpawned?.Invoke(this);
         }
 
         if(IsOwner)
@@ -31,4 +36,13 @@ public class TankPlayer : NetworkBehaviour
             virtualCamera.Priority = ownerPriority;
         }
     }
+
+    public override void OnNetworkDespawn()
+    {
+        if (IsServer)
+        {
+            OnPlayerDespawned?.Invoke(this);
+        }
+    }
+
 }

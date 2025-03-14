@@ -285,3 +285,16 @@ Este script se suscribe al evento HandleHealthChanged para modificar de forma vi
     - Cuando se habilita se añade a una lista de spawnpoints (atributo estátioo)
     - Método estático `GetRandomSpawnPos` para obtener una posición aleatoria entre los posibles spawnpoints de la escena.
 - Modificado `NetworkServer.cs` para que cuando se valida la conexión de un cliente se le asigna una posición aleatoria entre los spawnpoints posibles.
+
+### 4.5 Respawn
+
+- Modificado `TankPlayer.cs`:
+    - Nuevo campo `health` para referirse a la salud del jugador.
+    - Se definen dos eventos nuevos para anunciar al sistema cuando un jugador es instanciado en la red y cuando es desinstanciado.
+        - `OnPlayerSpawned`
+        - `OnPlayerDespawned`
+    - Estos eventos son invocados solo por el servidor
+
+- Nuevo `RespawnHandler.cs` asociado a un GameObject `RespawnHandler` en la escena `Game`:
+    - Cuando un jugador aparece en la escena se suscribe a su evento `OnDie`.
+    - Cuando el jugador anuncia que muere destruye el gameobject y lo vuelve a crear mediante `RespawnPlayer` con el mismo identificador de red.
