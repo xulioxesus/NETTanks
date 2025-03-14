@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7913187816804956916}
+  - component: {fileID: 8232287848825029115}
+  - component: {fileID: 7420300575456679770}
   m_Layer: 0
   m_Name: GameHUD
   m_TagString: Untagged
@@ -32,6 +34,46 @@ Transform:
   - {fileID: 5920861854478995890}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8232287848825029115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709400471249500805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2820991348
+  InScenePlacedSourceGlobalObjectIdHash: 0
+  DeferredDespawnTick: 0
+  Ownership: 1
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+  SyncOwnerTransformWhenParented: 1
+  AllowOwnerToParent: 0
+--- !u!114 &7420300575456679770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709400471249500805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a66e8fbed30be794ebccf35f03ce58cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowTopMostFoldoutHeaderGroup: 1
+  leaderboardEntityHolder: {fileID: 1713782469367927313}
+  leaderboardEntityPrefab: {fileID: 3748740135953331864, guid: b410d26a4c533494f95690c40b14df7a, type: 3}
 --- !u!1 &3969442526684314580
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,5 +280,10 @@ PrefabInstance:
 --- !u!224 &288190763090405578 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3770095196630697372, guid: 51bd05adb744202489d07229d45be055, type: 3}
+  m_PrefabInstance: {fileID: 4012085372176117078}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &1713782469367927313 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2334375821116882759, guid: 51bd05adb744202489d07229d45be055, type: 3}
   m_PrefabInstance: {fileID: 4012085372176117078}
   m_PrefabAsset: {fileID: 0}

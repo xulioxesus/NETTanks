@@ -304,3 +304,13 @@ Este script se suscribe al evento HandleHealthChanged para modificar de forma vi
 - Nuevo GameObject GameHUD en la escena `Game` para mostrar de momento la lista de los jugadores con mejor puntuación.
 - Nuevo prefab `LeaderboardEntity` para mostrar cada jugador.
 - Nuevos scripts sin implementar.
+
+### 4.7 Custom Data Type
+
+- Nueva estructura de datos `LeaderboardEntityState` para transmitir los datos por la red de las estadísticas de los mejores jugadores.
+    - Implementa `INetworkSerializable` para poder ser enviada por la red.
+    - Implementa `IEquatable` para poder ser utilizada en una lista enviada por la red.
+- Nuevo script `Leaderboard.cs`:
+    - Se define una variable de red que es una lista. Usa el struct anterior.
+- Modificado GameHUD para:
+    - Añadir un script `Leaderboard.cs` desde el que controlar la lista de jugadores que aparecerán en pantalla añadiendo y quitando elementos `LeaderboardEntity`.
