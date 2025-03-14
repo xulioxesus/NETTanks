@@ -346,3 +346,15 @@ Este script se suscribe al evento HandleHealthChanged para modificar de forma vi
         - Value (si han cambiado las monedas): Si existe en la lista se actualizan las monedas.
 
 - Se crea un método `HandleCoinsChanged` para actualizar la tabla de jugadores en pantalla.
+
+### 4.10 Leaderboard Sorting
+
+- Modificado `Leaderboard.cs`.
+    - Se añade atributo para cambiar el color del propio jugador en la lista de jugadores
+    - Se cambia el color para el jugador local
+    - Se hace público `UpdateText` y se muestra el número de orden.
+
+- Modificado `Leaderboard.cs`.
+    - Nuevo atributo para el número de jugadores a mostrar en la lista (8 por defecto).
+    - Se modirica `HandleLeaderboardEntitiesChanged` para ordenadar los jugadores de mayor a menor por las monedas.
+        - Si el jugador no está entre los 8 primeros se muestra como octavo.
