@@ -298,3 +298,9 @@ Este script se suscribe al evento HandleHealthChanged para modificar de forma vi
 - Nuevo `RespawnHandler.cs` asociado a un GameObject `RespawnHandler` en la escena `Game`:
     - Cuando un jugador aparece en la escena se suscribe a su evento `OnDie`.
     - Cuando el jugador anuncia que muere destruye el gameobject y lo vuelve a crear mediante `RespawnPlayer` con el mismo identificador de red.
+
+### 4.6 Leaderboard Setup
+
+- Nuevo GameObject GameHUD en la escena `Game` para mostrar de momento la lista de los jugadores con mejor puntuación.
+- Nuevo prefab `LeaderboardEntity` para mostrar cada jugador.
+- Nuevos scripts sin implementar.
