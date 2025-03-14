@@ -327,3 +327,22 @@ Este script se suscribe al evento HandleHealthChanged para modificar de forma vi
     - Nuevo método `HandleLeaderboardEntitiesChanged` para manejar la lista cuando suceden cambios.
     - Nuevo método `HandlePlayerSpawned` para añadir un jugador a la lista.
     - Nuevo método `HandlePlayerDespawned` para eliminar al jugador de la lista.
+
+### 4.9 Leaderboard Names
+
+- Se da acceso a través de `TankPlayer` al monedero.
+
+- Modificado `LeaderboardEntityDisplay`
+    - Referencia al propio gameobject para mostrar el texto.
+    - Método `Initialise` para dar valores a id, name y coins
+    - Método `UpdateCoins`
+    - Método `UpdateText`
+
+- Modificado `Leaderboard.cs`
+    - Nueva lista privada de los elementos mostrados en pantalla (`entityDisplays`).
+    - Modificado el método que se ejecuta cuando se modifica la lista de red con los datos de los clientes.
+        - Add: Se comprueba que el elemento no exista ya en la lista privada y se crea un elemento visual en el juego.
+        - Remove: Se comprueba que exista y se borra
+        - Value (si han cambiado las monedas): Si existe en la lista se actualizan las monedas.
+
+- Se crea un método `HandleCoinsChanged` para actualizar la tabla de jugadores en pantalla.

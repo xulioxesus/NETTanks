@@ -234,6 +234,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowTopMostFoldoutHeaderGroup: 1
   virtualCamera: {fileID: 7073997255601411602}
+  <Health>k__BackingField: {fileID: 487377282387732465}
+  <Wallet>k__BackingField: {fileID: 5240140706003969253}
   ownerPriority: 15
   PlayerName:
     m_InternalValue:
@@ -270,7 +272,6 @@ MonoBehaviour:
         byte0027: 0
         byte0028: 0
         byte0029: 0
-  <Health>k__BackingField: {fileID: 487377282387732465}
 --- !u!1 &2164612913048295732
 GameObject:
   m_ObjectHideFlags: 0
