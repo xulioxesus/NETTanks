@@ -314,3 +314,16 @@ Este script se suscribe al evento HandleHealthChanged para modificar de forma vi
     - Se define una variable de red que es una lista. Usa el struct anterior.
 - Modificado GameHUD para:
     - Añadir un script `Leaderboard.cs` desde el que controlar la lista de jugadores que aparecerán en pantalla añadiendo y quitando elementos `LeaderboardEntity`.
+
+### 4.8 Leaderboard spawning
+
+- Modificado `Leaderboard.cs`
+    - Nuevo `OnNetworkSpawn`.
+        - Si es cliente se suscribe a los cambios que sucedan en la lista de red con los datos de los jugadores y crea manualmente un evento para provocar que se llene la lista.
+        - Si es servidor busca todos los jugadores y se suscribe a sus eventos spawned y despawned
+    - Nuevo `OnNetworkDespawn
+        - Si es cliente se desinscribe de los cambios que sucedan en la lista de red.
+        - Si es servidor se desinscribe de los eventos del jugador.
+    - Nuevo método `HandleLeaderboardEntitiesChanged` para manejar la lista cuando suceden cambios.
+    - Nuevo método `HandlePlayerSpawned` para añadir un jugador a la lista.
+    - Nuevo método `HandlePlayerDespawned` para eliminar al jugador de la lista.
