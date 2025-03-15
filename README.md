@@ -391,3 +391,23 @@ Monedas que se esparcen cuando un jugador muere
     - En el método Update:
         - Si la zona de salud está recargando no se puede recuperar salud ahí.
         - Cada cierto tiempo se restaura salud a los jugadores en la zona si el jugador tiene las monedas suficientes.
+### 4.16 Minimap
+
+- Se crean dos `Layer` nuevas:
+    - Minimap
+    - Sun
+- Se crea una `RenderTexture` nueva:
+    Assets/Minimap/Texture
+
+- Nuevo prefab `MinimapCamera` (Camera) que se ubica en la escena `Game`
+    - Se configura CullingMask para que muestre solo las capas Minimap y Sun
+    - En Output/OutputTexture se utiliza `MinimapRenderTexture`
+
+- Nuevo prefab `MinimapUI` que se integra en el GameHud de la escena `Game`
+    - Utiliza `MinimpaRenderTexture` para mostrar el contenido de la mini camara
+
+- Modificaión de `Player` para mostrar un icono en el minimapa
+
+- Modificación de `TankPlayer.cs` para mostrar un color diferente en el minimapa para el propio jugador
+
+- Modificación de la `Main Camera` de `Game` para que no muestre la capa `Minimap`
