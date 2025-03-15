@@ -383,4 +383,11 @@ Monedas que se esparcen cuando un jugador muere
 - Nuevo script `HealingZone.cs` en el que de momento se guarda una lista de los jugadores que entran en la zona y salen mediante el uso de triggers.
 - Se añaden zonas de sanación en la escena `Game`
 
+### 4.15 Restoring Health
 
+- Se modifica `HealingZone.cs` para restaurar la vida de los jugadores.
+    - Se añade una variable de read con la capacidad actual para restaurar salud `HealthPower`
+    - Se añaden los métodos `OnNetworkSpawn` y `OnNetworkDespawn`.
+    - En el método Update:
+        - Si la zona de salud está recargando no se puede recuperar salud ahí.
+        - Cada cierto tiempo se restaura salud a los jugadores en la zona si el jugador tiene las monedas suficientes.

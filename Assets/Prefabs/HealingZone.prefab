@@ -91,7 +91,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8010024198627710831
 Transform:
   m_ObjectHideFlags: 0
@@ -150,7 +150,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 500
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.25380915, g: 0.9150943, b: 0.3807708, a: 1}
   m_FlipX: 0
@@ -340,7 +340,7 @@ MonoBehaviour:
   ShowTopMostFoldoutHeaderGroup: 1
   healPowerBar: {fileID: 1355888149394571327}
   maxHealPower: 30
-  healCooldown: 60
+  healCooldown: 10
   healTickRate: 1
   coinsPerTick: 10
   healthPerTick: 10
