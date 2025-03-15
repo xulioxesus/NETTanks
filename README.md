@@ -364,3 +364,14 @@ Este script se suscribe al evento HandleHealthChanged para modificar de forma vi
 - Modificado `RespawnHandler.cs` para reducir la cantidad de monedas de un jugador cuando muere (50% por defecto)
     - Se hace referencia a `TankPlayer` en vez de a `NetworkObject` del prefab `Player` para acceder a las monedas cuando el jugador muere.
     - Una vez se hace respawn del jugador se le actualiza el número de monedas.
+
+### 4.13 Bounty Coins
+
+Monedas que se esparcen cuando un jugador muere
+
+- Modificado prefab `Coin` para no tener el componente `NetworkTransform`
+- Modificado prefab `RepawnCoin` para añadir componente `NetworkTransform`
+- Nuevo prefab `BountyCoin` basado en `Coin`
+- Nuevo script BountyCoin.cs con el método Collect implementado
+- Se modifica el monedero `CoinWallet.cs` para esparcir monedas cuando el jugador muere, accediendo al componente Healh del jugador y suscribiéndose al evento `OnDie`.
+    - Nuevo método `HandleDie` que esparce las monedas del jugador muerto.
