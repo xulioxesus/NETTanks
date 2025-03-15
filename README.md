@@ -375,3 +375,12 @@ Monedas que se esparcen cuando un jugador muere
 - Nuevo script BountyCoin.cs con el método Collect implementado
 - Se modifica el monedero `CoinWallet.cs` para esparcir monedas cuando el jugador muere, accediendo al componente Healh del jugador y suscribiéndose al evento `OnDie`.
     - Nuevo método `HandleDie` que esparce las monedas del jugador muerto.
+
+### 4.14 Healing Zone Setup
+
+- Se empiezan a definir las zonas de sanación en la escena.
+- Nuevo prefab `HealingZone` donde los jugadores entran para ser sanados si la zona tiene carga de sanación
+- Nuevo script `HealingZone.cs` en el que de momento se guarda una lista de los jugadores que entran en la zona y salen mediante el uso de triggers.
+- Se añaden zonas de sanación en la escena `Game`
+
+
