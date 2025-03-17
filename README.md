@@ -411,3 +411,22 @@ Monedas que se esparcen cuando un jugador muere
 - Modificación de `TankPlayer.cs` para mostrar un color diferente en el minimapa para el propio jugador
 
 - Modificación de la `Main Camera` de `Game` para que no muestre la capa `Minimap`
+
+### 4.17 Gameplay Polish
+
+- Ampliar los bordes del mapa (mediante collider) para que las monedas no se instancien fuera.
+
+- Se añadae un botón para salir llamado `LeaveGameButton` en el HUD que llama al método `LeaveGame` de un nuevo script `GameHUD.cs` asociado al HUD.
+
+- Se modifica `HostGameManager.cs`
+    - Nuevo método `HandleClientLeft` asociado al evento `NetworkServer.OnClientLeft` que elimina un jugador del lobby.
+    - Se modifica el método `Dispose` para llamar a un nuevo método `ShutDown`.
+    - Nuevo método `ShutDown` que realiza las mismas tareas que antes `Dispose`.
+
+- Se modifica `NetworkServer.cs`
+    - Se crea un nuevo evento `OnClientLeft` que se invoca cuando un cliente se desconecta.
+
+- Se modifica `ClientGameManager.cs`
+    - Nuevo método `Disconnect`  para llamar a `networkClient.Disconnect`
+
+- Refactorización de `NetworkClient.cs` para crear un nuevo método `Disconnect` con lo que se hacía anteriormente en `OnClientDisconnect`.
