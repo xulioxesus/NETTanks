@@ -430,3 +430,5 @@ Monedas que se esparcen cuando un jugador muere
     - Nuevo método `Disconnect`  para llamar a `networkClient.Disconnect`
 
 - Refactorización de `NetworkClient.cs` para crear un nuevo método `Disconnect` con lo que se hacía anteriormente en `OnClientDisconnect`.
+
+- Se añade un GameObject EventSystem a la escena Game
